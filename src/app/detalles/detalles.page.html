@@ -1,0 +1,46 @@
+  <ion-header color="primary">
+    <ion-toolbar color="primary" class="ion-no-border"> 
+      <ion-buttons slot="end">
+        <ion-menu-button menu="first"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        PeliculasApp
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+
+  <img (click)="trailerView()"  src="https://image.tmdb.org/t/p/w500{{detallePelicula.backdrop_path}}" alt=""><ion-button  (click)="trailerView()" expand="block" fill="clear" shape="round">
+  <ion-icon name="videocam-outline" color="primary" class="icon" (click)="trailerView()" ></ion-icon>&nbsp;Ver trailer 
+</ion-button> 
+  <h3 class="tituloPelicula"> {{detallePelicula.title}} </h3>
+  <br>
+  <p style=" padding: 5px 12px; text-align: justify;">{{detallePelicula.overview}}</p>
+
+<div style="width: 30%;display: block; margin: auto; ">
+ <ngb-rating  [(ngModel)]="currentRate" (ngModelChange)="calificacion()"  >
+  <ng-template let-fill="fill" let-index="index">
+    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 2.5">&#9733;</span>
+  </ng-template>
+</ngb-rating> 
+</div>
+<div style="width: 100%;">
+   <p   style="  margin-bottom: 70px;" class="subtexto">
+  <span *ngIf="this.calificationGeneral > 0" class="subtexto">Clificacion general :{{calificationGeneral}}</span><br>
+  <span>Tu voto: {{currentRate}} </span><br>
+  Votos :{{votosPelicula}}</p>
+</div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+</ion-content>

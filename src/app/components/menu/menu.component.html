@@ -1,0 +1,27 @@
+<ion-menu side="end" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>PeliculasApp</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div >
+      
+      <ion-avatar style=" display: block; margin: auto; margin-top: 15px;"> 
+        <img [src]="user.foto">
+      </ion-avatar>
+      <h5  style="text-transform:capitalize; text-align: center;">{{user.nombre}} 
+       </h5>
+       <h6 style="text-align: center;" > {{user.celular}}</h6>
+     
+    </div>
+    
+    <ion-list> 
+      <ion-menu-toggle>
+      <ion-item>Tema oscuro <ion-toggle (ionChange)="toogleTheme($event)"  slot="end" ></ion-toggle>  </ion-item>
+     
+      <ion-item (click)="logout()">Cerrar sesion <ion-icon color="primary" slot="end" name="log-out-outline"></ion-icon></ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

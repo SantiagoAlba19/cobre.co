@@ -1,0 +1,35 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary" class="ion-no-border"> 
+    <ion-title>
+      PeliculasApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h3 style="margin-top: 20%;">Inicio de sesion</h3>
+
+
+<form (ngSubmit)= "logForm()"  >
+
+<ion-item  class="inputAuth" style=" margin-top: 18%;">
+  <ion-label position="floating">Nombre completo</ion-label>
+  <ion-input [(ngModel)]="nombre" name="nombre" style="width: 60%;" type="text" ></ion-input>
+</ion-item>
+
+
+<ion-item  class="inputAuth">
+  <ion-label position="floating">Contraseña</ion-label>
+  <ion-input [(ngModel)]="pass" name="pass" style="width: 60%;" type="password" ></ion-input>
+</ion-item>
+<ion-button class="buttonAuth" type="submit" expand="block"  shape="round">
+  login
+</ion-button>
+</form><br>
+
+<h6 class="linkAuth" [routerLink]="['/registro']" routerLinkActive="router-link-active"  >
+  Crear cuenta
+</h6>
+
+</ion-content>

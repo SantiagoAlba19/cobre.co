@@ -1,0 +1,48 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary" class="ion-no-border"> 
+
+    <ion-title>
+      PeliculasApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+
+<ion-content>
+
+  <h3 style="margin-top: 20%;">Registro</h3>
+
+
+<form (ngSubmit)= "regForm()"  >
+
+  <ion-button style=" margin-top: 10%;" (click)="camara()" expand="block" fill="clear" shape="round">
+    Foto de perfil &nbsp; <ion-icon name="camera-outline" color="primary" ></ion-icon>
+  </ion-button>
+
+<ion-item  class="inputAuth" >
+  <ion-label position="floating">Nombre completo</ion-label>
+  <ion-input [(ngModel)]="nombre" name="nombre" style="width: 60%;" type="text" ></ion-input>
+</ion-item>
+
+
+<ion-item  class="inputAuth">
+  <ion-label position="floating">Numero de contacto</ion-label>
+  <ion-input [(ngModel)]="celular" name="celular"  type="number" ></ion-input>
+</ion-item>
+
+
+<ion-item  class="inputAuth">
+  <ion-label position="floating">Contraseña</ion-label>
+  <ion-input [(ngModel)]="pass" name="pass" style="width: 60%;" type="password" ></ion-input>
+</ion-item>
+
+
+<ion-button class="buttonAuth" type="submit" expand="block"  shape="round">
+  Crear cuenta
+</ion-button>
+</form><br>
+
+<h6 class="linkAuth" [routerLink]="['/inicio-sesion']" routerLinkActive="router-link-active"  >
+  Iniciar de sesion
+</h6>
+</ion-content>

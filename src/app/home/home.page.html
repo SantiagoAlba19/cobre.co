@@ -1,0 +1,88 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header color="primary">
+    <ion-toolbar color="primary" class="ion-no-border"> 
+      <ion-buttons slot="end">
+        <ion-menu-button menu="first"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        PeliculasApp
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+ 
+  <ion-item>Ordenar por generos <ion-toggle (ionChange)="toogleGeneros($event)"  slot="end" ></ion-toggle>  </ion-item>
+     
+
+<ion-grid *ngIf="!listadoGeneros" fixed>
+  <ion-row>
+    <ion-col *ngFor="let pelicula of peliculas" size="6">
+      <ion-card class="cardPelicula"  (click)="detalles(pelicula)" > 
+        <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}} " alt="">
+        <h5 class="tituloPelicula"> {{pelicula.title}} </h5>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<ion-grid *ngIf="listadoGeneros" fixed>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>Accion  </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let pelicula of accion" size="6">
+      <ion-card class="cardPelicula"  (click)="detalles(pelicula)" > 
+        <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}} " alt="">
+        <h5 class="tituloPelicula"> {{pelicula.title}} </h5>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>Animado  </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let pelicula of animado" size="6">
+      <ion-card class="cardPelicula"  (click)="detalles(pelicula)" > 
+        <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}} " alt="">
+        <h5 class="tituloPelicula"> {{pelicula.title}} </h5>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>Suspenso </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let pelicula of suspenso" size="6">
+      <ion-card class="cardPelicula"  (click)="detalles(pelicula)" > 
+        <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}} " alt="">
+        <h5 class="tituloPelicula"> {{pelicula.title}} </h5>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-item>Terror</ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let pelicula of terror" size="6">
+      <ion-card class="cardPelicula"  (click)="detalles(pelicula)" > 
+        <img src="https://image.tmdb.org/t/p/w500{{pelicula.poster_path}} " alt="">
+        <h5 class="tituloPelicula"> {{pelicula.title}} </h5>
+      </ion-card>
+      
+    </ion-col>
+  </ion-row>
+  
+</ion-grid>
+
+
+  
+</ion-content>
