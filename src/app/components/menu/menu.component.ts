@@ -1,6 +1,7 @@
 import { Component, OnInit, SecurityContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,10 +13,24 @@ export class MenuComponent implements OnInit {
   user : any ={};
   foto ;
 
-  constructor( private router : Router,private _sanitizer: DomSanitizer) {}
+  constructor( private router : Router,private _sanitizer: DomSanitizer, private auth : AuthService) {}
 
   ngOnInit() {
-  
+  this.getUser();
+  this.transform(this.user.foto)
+  this.auth.getUser$().subscribe(res =>{
+    console.log(res)
+  })
+  }
+  ionViewWillEnter(){
+    console.log("si")
+  }
+  getUser(){
+   this.auth.getUser$().subscribe(res =>{
+     this.user = res
+   })
+    this.foto = "data:image/jpeg;base64,"+this.user.foto;
+    this.user.foto = "data:image/jpeg;base64,"+this.user.foto;
   }
   transform(value: string): SafeHtml {
     return this._sanitizer.sanitize(SecurityContext.HTML, this._sanitizer.bypassSecurityTrustHtml(value))
@@ -30,7 +45,7 @@ export class MenuComponent implements OnInit {
     }
   
   logout(){
-    localStorage.setItem("user",JSON.stringify([])  )
+   this.auth.logout()
     this.router.navigate(['/inicio-sesion'])
     
   }

@@ -26,16 +26,12 @@ export class HomePage implements OnInit  {
   constructor(private router : Router, private _sanitizer: DomSanitizer, private movies : DataService) {}
 
   ngOnInit() {
-    this.getUser();
+  
     this.peliculas = this.movies.movies
     this.categorias()
   }
 
-  getUser(){
-    this.user = JSON.parse(localStorage.getItem( "user"))
-    this.foto = "data:image/jpeg;base64,"+this.user.foto;
-    this.user.foto = "data:image/jpeg;base64,"+this.user.foto;
-  }
+
   transform(value: string): SafeHtml {
     return this._sanitizer.sanitize(SecurityContext.HTML, this._sanitizer.bypassSecurityTrustHtml(value))
     }

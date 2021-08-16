@@ -3,5 +3,8 @@
 	"appName": "PeliculasApp",
 	"webDir": "www",
 	"bundledWebRuntime": false,
-	"npmClient": "npm"
+	"npmClient": "npm",
+	"server": {
+		"cleartext": true
+	}
 }
