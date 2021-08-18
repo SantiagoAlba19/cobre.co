@@ -22,9 +22,7 @@ export class MenuComponent implements OnInit {
     console.log(res)
   })
   }
-  ionViewWillEnter(){
-    console.log("si")
-  }
+ 
   getUser(){
    this.auth.getUser$().subscribe(res =>{
      this.user = res

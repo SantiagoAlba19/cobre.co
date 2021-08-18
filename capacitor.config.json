@@ -1,12 +1,1 @@
-{
-  "appId": "io.ionic.starter",
-  "appName": "PeliculasApp",
-  "webDir": "www",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "server": {
-    "url": "http://190.69.48.203:8100",
-    "cleartext": true
-  }
- 
-}
+{}

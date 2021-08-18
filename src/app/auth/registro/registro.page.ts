@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Camera, CameraOptions} from '@ionic-native/camera/ngx';
-import { usuarios } from '../../models/interfaces';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from '../../servicios/auth.service';
+import {FormControl, FormControlName, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -13,7 +14,7 @@ export class RegistroPage implements OnInit {
   usuarios=[];
  
   constructor(  private router : Router,private camera: Camera, 
-    private auth : AuthService) { }
+    private auth : AuthService, public alertController: AlertController) { }
   nombre: string ;
   celular : number;
   foto : any;
@@ -21,12 +22,37 @@ export class RegistroPage implements OnInit {
 
  
   ngOnInit() {
- 
+   const nombre = "dkjfdkjfsdññññ"
+   if(nombre.search(this.regex_letras)){
+     console.log(true)
+   }else{
+    console.log(false) 
+   }
+
   }
+ private regex_letras = /^[a-zA-ZáÁéÉíÍóÓúÚñÑüÜ\s]+$/;
+  private regex_numeros = /^[0-9]+$/;
+
+
 
   regForm(){
-  this.auth.register();
-   
+    // if(this.auth.foto == undefined || this.auth.foto == "" ){
+    //   this.auth.presentAlerFoto()
+    // }else{
+       if(this.auth.nombre == undefined || this.auth.nombre == "" ){
+      this.auth.presentAlertNombre()
+      }else{
+      if(this.auth.celular == undefined || this.auth.celular == 0 ){
+        this.auth.presentAlertCelular() }
+        else{
+           if(this.auth.pass == undefined || this.auth.pass == "" ){
+          this.auth.presentAlertPass()
+        }else{
+          this.auth.register();
+        }
+        }
+    }
+   // }
   }
 
   camara(){
@@ -41,9 +67,11 @@ export class RegistroPage implements OnInit {
     
     this.camera.getPicture(options).then((imageData) => {
      this.foto =  imageData;
+     this.auth.foto =imageData;
     }, (err) => {
      console.log(err)
     });
   }
+
 
 }

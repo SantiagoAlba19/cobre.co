@@ -29,6 +29,7 @@ export class HomePage implements OnInit  {
   
     this.peliculas = this.movies.movies
     this.categorias()
+    
   }
 
 
