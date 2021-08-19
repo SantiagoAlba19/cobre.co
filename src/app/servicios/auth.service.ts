@@ -31,7 +31,7 @@ export class AuthService {
       pass: this.pass,
       foto : this.foto,
     }
-    if(this.nombre.search(this.regex_letras) || this.pass.search(this.regex_letras)){
+    if(this.nombre.search(this.regex_letras)){
       this.presentAlertExprecion()
     }else{
         if(JSON.parse(localStorage.getItem( "user")) == null){
@@ -209,7 +209,7 @@ export class AuthService {
   async presentAlertExprecion() {
     const alert = await this.alertController.create({
  
-      message: "No se permiten caracteres especiales en este formulario, por favor corrigelos y vuelve a intentarlo",
+      message: "No se permiten caracteres especiales ni numeros en el nombre de usuario, por favor corrigelos y vuelve a intentarlo",
       buttons: [
         {
           text: "Ok",

@@ -36,9 +36,9 @@ export class RegistroPage implements OnInit {
 
 
   regForm(){
-    // if(this.auth.foto == undefined || this.auth.foto == "" ){
-    //   this.auth.presentAlerFoto()
-    // }else{
+    if(this.auth.foto == undefined || this.auth.foto == "" ){
+     this.auth.presentAlerFoto()
+     }else{
        if(this.auth.nombre == undefined || this.auth.nombre == "" ){
       this.auth.presentAlertNombre()
       }else{
@@ -52,7 +52,7 @@ export class RegistroPage implements OnInit {
         }
         }
     }
-   // }
+   }
   }
 
   camara(){
